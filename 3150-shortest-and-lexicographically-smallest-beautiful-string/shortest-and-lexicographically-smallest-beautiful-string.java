@@ -1,4 +1,13 @@
 class Solution {
+
+    public static boolean strComparer(String a, String b){
+        int i = 0;
+        for(i=0; i<a.length(); i++){
+            if(a.charAt(i) != b.charAt(i)) break;
+        }
+        return i<a.length() && a.charAt(i)=='1';
+    }
+
     public String shortestBeautifulSubstring(String s, int k) {
         int ones = 0;
         int n = s.length();
@@ -43,7 +52,10 @@ class Solution {
                     else if(curr==minLen){
                         String temp = s.substring(st,end+1);
                         String ans = s.substring(minIdx[0],minIdx[1]+1);
-                        if(ans.compareTo(temp)>0){ // ans is greater, otherwise skip
+                    
+                        // ans is greater, otherwise skip
+                        //if(ans.compareTo(temp)>0){ <- it will take O(n) time
+                        if(strComparer(ans,temp)){
                             minIdx[0] = st;
                             minIdx[1] = end;
                         }
