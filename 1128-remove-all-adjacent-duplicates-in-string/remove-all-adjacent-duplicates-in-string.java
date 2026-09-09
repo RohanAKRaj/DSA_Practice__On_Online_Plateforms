@@ -10,10 +10,10 @@ class Solution {
                 st.pop();
             }
         }
-        String sb = "";
-        while(!st.isEmpty()){
-            sb+=(st.pop());
+        StringBuilder result = new StringBuilder();
+        while(!st.isEmpty()) {
+            result.append(st.pop());
         }
-        return sb;
+        return result.toString();
     }
 }
