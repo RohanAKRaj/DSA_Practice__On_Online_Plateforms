@@ -9,11 +9,10 @@ class Solution {
         }
         
         double avg = sum/k;
-        int left = 0;
+
         for(int i=k; i<n; i++){
-            sum = sum - nums[left++] + nums[i];
-            double curr = sum/k;
-            avg = Math.max(avg, curr);
+            sum = sum - nums[i-k] + nums[i];
+            avg = Math.max(avg, sum/k);
         }
 
         return avg;
